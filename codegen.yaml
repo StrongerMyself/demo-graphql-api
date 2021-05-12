@@ -1,0 +1,13 @@
+schema: src/graphql/schema.ts
+require:
+  - ts-node/register
+generates:
+  ./global.d.ts:
+    plugins:
+      - add:
+          content:
+            - 'declare module MyGraphQL {'
+      - add:
+          placement: 'append'
+          content: '}'
+      - typescript
